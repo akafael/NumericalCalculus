@@ -8,48 +8,69 @@ autors Diogenes, Felipe , Rafael Lima
 import sys, os, math
 #from fractions import Fraction
 
-
 # read data of table1.dat:
-def lerMatriz():
-	matriz = [] 
-	# contador
+def readMatrix(filename = '../data/table1.dat'):
+
+	matrix = [] 
+	# cont:
 	i = 0
-	#dimensoes da matriz
-	linhas = 0
-	colunas = 0
+	# matriz dimmension:
+	lines = 0
+	columns = 0
 
-	arquivo = open('../data/table1.dat','r')
-	print str(file)
-	print str('\n')
+	file = open(filename,'r')
+	print "table1.dat"
+	print str(file.read())
 
-	#Trasforma o arquivo lido em uma matriz 2D
-	for linha in arquivo:
-		linha = linha.strip().split('\t')
-		matriz.append([])
-		matriz[i] = linha
+	#Transform file content in 2D - matrix:
+	for line in file.readlines():
+		line = line.strip().split('\t')
+		matrix.append([])
+		matrix[i] = line
 		i += 1
 
-	linhas = len(matriz)
+	lines = len(matrix)
+	colummns = len(matrix[0])
+	
+	print(matrix)
 
-	for c in matriz[0]:
-		colunas += 1
+	file.close()
 
-	arquivo.close()
-
-	return (matriz,linha,colunas)
+	return (matrix,lines,columns)
 
 # print matrix:
-def imprimeMatriz(matriz):
-	for i in range(len(matriz)):
-		for j in range(len(matriz[i])):
-			print str(matriz[i][j])
-		print # pula uma linha
+def printMatrix(matrix):
+	for line in matrix:
+		for e in line:
+			print str(e)
+		print # line step
 
+# print polynomial
+def printPolynomial(pol):
+	polynomial = ""
+	i = 0
+	for a in pol:
+		if(i==0):
+			polynomial += a
+		elif(i==1):
+			polynomial += a+"x"
+		else:
+			polynomial += a+"x^"+i
+		polynomial+=" "
+		i+=1
+	print("p(x) = "+polynomial)
+
+# Eval p(x)
+def evalPolynomial(pol,x):
+	value = 0
+	i = 0
+	for a in po:
+		value = a*(x^i)
 
 # testando funcoes:
 # TODO Verificar se funciona
-matriz = lerMatriz()
-imprimeMatriz(matriz)
+matrix,l,c = readMatrix()
+printMatrix(matrix)
 
 
 # Ajuste polinomial
@@ -58,8 +79,6 @@ imprimeMatriz(matriz)
 2 Calcular os produtos de matrizes A*AT e AT*Y
 3 Resolver o sistema.
 """
-
-
 
 # do polymonial fitting:
 
