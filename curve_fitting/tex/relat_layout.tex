@@ -1,0 +1,75 @@
+%     Gráficos e layout ----------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}
+\usepackage{times} % fonte Times New Roman
+%     Pacotes adicionados -------------------------------------------------------------------
+\usepackage{ae}
+%     Língua e hifenização ------------------------------------------------------------------
+\usepackage[brazilian]{babel}
+\usepackage{hyphenat}
+% ---------------------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{float}
+%\usepackage{graphicx}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{verbatim}
+\usepackage[pdftex]{hyperref}
+\usepackage[nottoc]{tocbibind}
+\usepackage{amsthm}
+\usepackage{enumerate} % Permite alterar Layout do enumerate
+\usepackage{pdflscape} % Permite alterar a orientação da pagina
+\usepackage{ifthen} % Permite usar condicionais ifelse
+\usepackage[table]{xcolor} % Permite alterar as cores das celulas de uma tabela
+\usepackage{amsmath} % Ambiente para uso de elementos matemáticos
+%\usepackage{gnuplottex} % permite usar diretamente o gnuplot
+%     Dados do título e autores --------------------------------------------------------------
+%\title{\tituloRelatorio}
+\author{Rafael Lima}
+%     Definições do pdf ----------------------------------------------------------------------
+\hypersetup{
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window    
+    pdfauthor={Rafael Lima},     % author
+    %pdfkeywords={} {} ,    % list of keywords
+    pdfnewwindow=true      % links in new window
+}
+% Layout do documento ------------------------------------------------------------------------
+ \pagestyle{fancy}
+%     Cabeçalho e Rodapé ---------------------------------------------------------------
+      \lhead{}
+      \chead{}
+      \rhead{}
+      \lfoot{}
+      \cfoot{}
+      \rfoot{\thepage}
+      %     Númeração ------------------------------------------------------------------------
+      \pagenumbering{arabic}
+      %     Retas do cabeçalho e rodapé ------------------------------------------------------
+      \renewcommand{\headrulewidth}{0.5pt}
+      \renewcommand{\footrulewidth}{0.5pt}
+      %     Tamanho da letra de seções e derivadas --------------------------------------------
+      \sectionfont{\normalsize}
+      \subsectionfont{\small}
+      %     Hiperlinks ------------------------------------------------------------------------
+      \hypersetup{
+                  colorlinks,
+                  citecolor=black,
+                  filecolor=black,
+                  linkcolor=black,
+                  urlcolor=black
+                  }
+%     Outros ----------------------------------------------------------------------------
+      \addto\captionsbrazilian{\renewcommand{\contentsname}{Índice}} % Muda nome dos contents
+      %\renewcommand{\thesection}{(\alph{section})} % muda o estilo de númeração das sections
+      % alterando a formatação dos numeradores de lista de itens
+      \renewcommand\theenumi{\arabic{enumi}}
+	  \renewcommand\labelenumi{(\textit{\theenumi})}
+	  \renewcommand\theenumii{\arabic{enumii}}
+	  \renewcommand\labelenumii{(\textit{\theenumi.\theenumii})}
+      
+% ---------------------------------------------------------------------------------------

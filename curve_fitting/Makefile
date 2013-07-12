@@ -2,11 +2,10 @@ SUBDIRS = tex src
 #CC = gcc
 #CCFLAGS = -Wall
 
-#SOURCES = main2.c datalogger.c ui.c calibration.c
-#HEADERS = main2.h datalogger.h ui.h #$(wildcard *.h)
+#SOURCES = main2.c 
+#HEADERS = main2.h #$(wildcard *.h)
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 
-#SOURCES = main.c
 #OBJECTS = $(wildcard $(SUBDIRS)/*.o) main.o
 #HEADERS = $(wildcard *.h)
 

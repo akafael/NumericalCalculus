@@ -1,0 +1,20 @@
+%     Pacotes e configurações padrão do estilo "article"\ -------------------------------------
+\documentclass[a4paper,11pt]{article}
+%     Layout --------------------------------------------------------
+\newcommand{\tituloCapa}{Estudo Processos Interativos} 
+\title{\tituloCapa}
+\input{./relat_layout.tex}
+\hypersetup{pdftitle={\tituloCapa}}    % title
+%     Definições Auxiliares -----------------------------------------
+%\input{relat_aux.tex}
+\write18{../src/./polynomial.py} % executa os scripts
+%-------------------------------~>ø<~--------------------------------
+\begin{document}
+% Capa e Índice -----------------------------------------------------
+\input{./relat_capa.tex}
+% Mapa Logístico ----------------------------------------------------
+\section{Mapa logístico}
+
+\paragraph{Questão 1}
+% -------------------------------------------------------------------
+\end{document}
