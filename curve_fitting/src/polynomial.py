@@ -11,6 +11,7 @@
 import pprint
 import numpy
 import os
+import sys
 
 def read_table():
     """
@@ -18,7 +19,7 @@ def read_table():
     de uma matriz.
     """
     table = []
-
+    
     # read data of table1.dat:
     for line in open('../data/table1.dat','r'):
         try:
@@ -59,7 +60,7 @@ def product(a, b):
     b_rows, b_cols = get_size(b)
     
     if a_cols != b_rows:
-        raise ValueError("Tamanhos incompativeis.")
+        raise ValueError("Dimensoes incompativeis: %s e %s" % (get_size(a), get_size(b)))
     
     product = new_matrix(a_rows, b_cols)
     for i in range(a_rows):
@@ -68,6 +69,18 @@ def product(a, b):
                 product[i][j] += a[i][k] * b[k][j]
     
     return product
+
+def add_and_multiply(a, b, factor=1.0):
+    if get_size(a) != get_size(b):
+        raise ValueError("Dimensoes incompativeis: %s e %s" % (get_size(a), get_size(b)))
+    
+    rows, cols = get_size(a)
+    r = new_matrix(rows, cols)
+    for i in range(rows):
+        for j in range(cols):
+            r[i][j] = a[i][j] + factor * b[i][j]
+    
+    return r
 
 
 def get_column(matrix, column):
@@ -108,16 +121,71 @@ def fit_polynomial(table, degree):
     Y = get_column(table, 1)
     coef = solve_system(product(A_t, A), product(A_t, Y))
     
+    x = transpose([coef])
+    
+    # Calculando o vetor erro a partir de e = y - Ax
+    erro = add_and_multiply(Y, product(A, x), -1.0)
+    print 'ERRO: %f' % numpy.linalg.norm(erro)
     return coef
 
 def interpolador(table):
     
-    A = get_A(table, degree)
+    A = get_A(table, len(table)-1)
     Y = get_column(table, 1)
     coef = solve_system(A, Y)
     
     return coef
 
+
+def derivative_first(table):
+    
+    deltaT = table[1][0] - table[0][0]
+    d = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
+    
+    for i in range(1, len(table)-1):
+        d.append((-0.5 * table[i-1][1] + 0.5 * table[i+1][1])/deltaT)
+    
+    d.append((-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT)
+    return d
+
+def derivative_second(table):
+    
+    deltaT = table[1][0] - table[0][0]
+    d = [(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/deltaT]
+    
+    for i in range(1, len(table)-1):
+        d.append((1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/deltaT)
+        
+    d.append((2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/deltaT)
+    return d
+
+
+def integral_trapezio(table):
+    """
+    Calcula a integral dos pontos atraves da Regra do Trapezio.
+    """
+    
+    deltaT = table[1][0] - table[0][0]
+    soma = (table[0][1] + table[-1][1]) / 2.0
+    for i in range(1, len(table)-1):
+        soma += table[i][1]
+    return soma * deltaT
+
+
+def integral_simpson(table):
+    """
+    Calcula a integral dos pontos atraves da regra 1/3 de Simpson.
+    """
+    deltaT = table[1][0] - table[0][0]
+    soma = (table[0][1] + table[-1][1])
+    
+    for impar in range(1, len(table)-1, 2):
+        soma += 2.0 * table[impar][1]
+        soma += 4.0 * table[impar+1][1]
+    
+    return soma * deltaT / 3.0
+
+    
 def print_matrix(matrix, format_str='%f'):
     """
     Imprime a matriz na tela de uma forma conveniente.
@@ -138,19 +206,21 @@ def to_str(coef, format_str='%+.2f'):
     return s + ' ' + format_str % coef[0]
 
 
-def multiple_plot(polynomials, titles):
+def multiple_plot(polynomials, titles, yrange=(-20.0, 20.0)):
     u"""
     Chama o processo gnuplot para plotar um gráfico dos dados no vetor y
     versus os dados no vetor x.
     """
     
-    command = 'set xrange [0.0:1.8]\n'
+    command = 'set yrange [%f:%f]\n' % yrange
+    command += 'set key top\n'
     for i, polynomial in enumerate(polynomials):
         command += 'f%d(x) = %s\n' % (i, to_str(polynomial))
         
     command += 'plot '
-    command += ', '.join('f%d(x) title "%s"' % (i, titles[i]) for i in range(len(polynomials)))
-    
+    command += ', '.join(['f%d(x) title "%s"' % (i, titles[i]) for i in range(len(polynomials))] +
+                         ["\"../data/table1.dat\" u 2:3 t \"Dados\""])
+    print command
     os.system("echo '%(command)s' | gnuplot -persist" % vars())
     
     
@@ -159,14 +229,35 @@ if __name__ == '__main__':
     polynomials = []
     titles = []
     
-    for degree in (1, 3, 5, 10):
-        coef = fit_polynomial(table, degree)
-        polynomials.append(coef)
-        titles.append('Grau %d' % degree)
-        print 'Grau %d => ' % degree + to_str(coef)
+    # Questão 1
+    #for degree in (1, 3, 5, 10):
+        #coef = fit_polynomial(table, degree)
+        #polynomials.append(coef)
+        #titles.append('Grau %d' % degree)
+        #print 'Grau %d => ' % degree + to_str(coef)
     
-    multiple_plot(polynomials, titles)
+    #multiple_plot(polynomials, titles)
     
-    interp = interpolador(table)
-    print 'Interpolador => %s' % to_str(interp)
+    # Questão 2
+    #interp = interpolador(table)
+    
+    #multiple_plot([interp], ['Interpolacao'], (-100, 100))
+    #print 'Interpolador => %s' % to_str(interp)
+    
+    
+    # Questão 3
+    first = derivative_first(table)
+    second = derivative_second(table)
+    
+    print 'Derivada primeira'
+    print_matrix([first])
+    print 'Derivada segunda'
+    print_matrix([second])
+    
+    # Questão 4
+    #integral = integral_trapezio(table)
+    #print 'Integral pelo metodo do trapezio: %f' % integral
+    
+    #integral = integral_simpson(table)
+    #print 'Integral pelo metodo 1/3 de Simpson: %f' % integral 
     
