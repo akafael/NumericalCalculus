@@ -1,19 +1,26 @@
 %     Pacotes e configurações padrão do estilo "article"\ -------------------------------------
 \documentclass[a4paper,11pt]{article}
 %     Layout --------------------------------------------------------
-\newcommand{\tituloCapa}{Estudo Processos Interativos} 
+\newcommand{\tituloCapa}{Interpolação Polinomial} 
 \title{\tituloCapa}
 \input{./relat_layout.tex}
 \hypersetup{pdftitle={\tituloCapa}}    % title
 %     Definições Auxiliares -----------------------------------------
+\usepackage{luacode}
 %\input{relat_aux.tex}
 \write18{../src/./polynomial.py} % executa os scripts
 %-------------------------------~>ø<~--------------------------------
 \begin{document}
 % Capa e Índice -----------------------------------------------------
 \input{./relat_capa.tex}
-% Mapa Logístico ----------------------------------------------------
-\section{Mapa logístico}
+\input{./relat_aux.tex}
+% Interpolação Polinomial -------------------------------------------
+\section{Interpolação Polinomial}
+
+\luaTable[3]{table1.dat}{Tabela}{$i$ & $x_i$ & $y_i$}
+
+% Comparativo entre a interpolação para diversos graus de polinômios
 \paragraph{Questão 1}
+
 % -------------------------------------------------------------------
 \end{document}

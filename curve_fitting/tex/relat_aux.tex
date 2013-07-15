@@ -1,0 +1,40 @@
+% compilar com lualatex
+
+%% \luaTable{'numDeColunas'}{'nomeArquivo.dat'}{'legenda'}
+%% {'linha de Titulo'}
+
+\begin{luacode}
+  numC = 3
+
+  function readfileDat(filename)
+    local filename = "../data/"..filename
+
+    for line in io.lines(filename) do
+        local numl = {}
+        for n in string.gmatch(line,"[\%d\%.]+") do
+          numl[#numl+1] = tostring(n)
+        end
+        numC = #numl -- rever esta parte
+        tex.sprint(table.concat(numl," & ")," \\\\");
+    end
+  end
+\end{luacode}
+
+\newcommand{\luaTable}[4][\directlua{tex.print(numC)}]
+{
+  \begin{table}[H]
+  \centering
+  \caption{#3}
+  \begin{tabular}{*{#1}{c}}
+  \hline
+  #4\\
+  \hline
+  \directlua{readfileDat('#2')}
+  \hline
+  \end{tabular}
+  \end{table}
+}
+
+% Exemplo de uso:
+% \luaTable[3]{teste.dat}{legenda}{x&y&z}
+
