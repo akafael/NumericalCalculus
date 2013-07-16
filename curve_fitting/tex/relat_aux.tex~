@@ -1,0 +1,36 @@
+%     Pacotes e configurações padrão do estilo "article"\ -------------------------------------
+% compilar com lualatex
+
+%% \luaTable{'numDeColunas'}{'nomeArquivo.dat'}{'linha de Titulo'}
+
+\begin{luacode}
+  function readfileDat(filename)
+    for line in io.lines(filename)  do
+        local numl = {}
+        for n in string.gmatch(line,"\%w") do
+          numl[#numl+1] = tostring(n)
+        end
+        numC = #numl -- rever esta parte
+        tex.sprint(table.concat(numl," & ")," \\\\");
+    end
+  end
+  numC = 3 -- gambiarra
+\end{luacode}
+
+\newcommand{\luaTable}[\directlua{tex.print(numC)}]
+{
+  \begin{table}[H]
+  \centering
+  \begin{tabular}{*{#1}{c}}
+  \hline
+  #3
+  \hline
+  \directlua{readfileDat('#2')}
+  \hline
+  \end{tabular}
+  \end{table}
+}
+
+\luaTable[3]{teste.dat}{x&y&z\\}
+
+\end{document}

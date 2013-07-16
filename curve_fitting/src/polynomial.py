@@ -19,15 +19,18 @@ def read_table():
     de uma matriz.
     """
     table = []
+    datafile = open('../data/table1.dat','r')
     
     # read data of table1.dat:
-    for line in open('../data/table1.dat','r'):
+    for line in datafile:
         try:
             i, t_i, y_i = [n for n in line.split() if n]
             table.append([float(t_i), float(y_i)])
         except ValueError:
             pass
     
+    datafile.close()
+
     return table
 
 
@@ -195,6 +198,16 @@ def print_matrix(matrix, format_str='%f'):
             print (format_str+' ') % elem,
         print ''
 
+def printDat_matrix(matrix,filename,format_str='%f',):
+    """
+    Imprime a matriz em um arquivo
+    """
+    
+    datafile = open(filename,'w')
+
+    for row in matrix:
+        for elem in row:
+            datafile.write()
 
 def to_str(coef, format_str='%+.2f'):
     """
@@ -205,8 +218,21 @@ def to_str(coef, format_str='%+.2f'):
         s += (format_str + '*x**%d ') % (coef[i], i)
     return s + ' ' + format_str % coef[0]
 
+def pol2tex(coef,filename="equation.tex", format_str='%+.2f'):
+    """
+    Imprime arquivo .tex com o polinomio
+    """
+    s = '$'
+    for i in reversed(range(1, len(coef))):
+        s+= (format_str + '\\cdot x^{%d} ') % (coef[i], i)
+    s+= ' ' + format_str % coef[0] + '$'
 
-def multiple_plot(polynomials, titles, yrange=(-20.0, 20.0)):
+    texfile = open("../tex/"+filename,'w')
+    texfile.write(s)
+    texfile.close()
+
+
+def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.0)):
     u"""
     Chama o processo gnuplot para plotar um gráfico dos dados no vetor y
     versus os dados no vetor x.
@@ -214,8 +240,11 @@ def multiple_plot(polynomials, titles, yrange=(-20.0, 20.0)):
     
     command = 'set yrange [%f:%f]\n' % yrange
     command += 'set key top\n'
+    command += 'outfile %s \n' % str('../image/'+nameGraph)
+    command += 'set output outfile\n'
     for i, polynomial in enumerate(polynomials):
         command += 'f%d(x) = %s\n' % (i, to_str(polynomial))
+        pol2tex(polynomial,'pol%d.tex'% (len(polynomial)-1))
         
     command += 'plot '
     command += ', '.join(['f%d(x) title "%s"' % (i, titles[i]) for i in range(len(polynomials))] +
@@ -230,13 +259,13 @@ if __name__ == '__main__':
     titles = []
     
     # Questão 1
-    #for degree in (1, 3, 5, 10):
-        #coef = fit_polynomial(table, degree)
-        #polynomials.append(coef)
-        #titles.append('Grau %d' % degree)
-        #print 'Grau %d => ' % degree + to_str(coef)
+    for degree in (1, 3, 5, 10):
+        coef = fit_polynomial(table, degree)
+        polynomials.append(coef)
+        titles.append('Grau %d' % degree)
+        print 'Grau %d => ' % degree + to_str(coef)
     
-    #multiple_plot(polynomials, titles)
+    multiple_plot(polynomials, titles)
     
     # Questão 2
     #interp = interpolador(table)
@@ -260,4 +289,5 @@ if __name__ == '__main__':
     
     #integral = integral_simpson(table)
     #print 'Integral pelo metodo 1/3 de Simpson: %f' % integral 
+    
     

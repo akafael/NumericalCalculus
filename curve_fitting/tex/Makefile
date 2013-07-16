@@ -3,7 +3,7 @@ CC = lualatex
 
 ALL: curve_fitting.pdf
 
-%.pdf: %.tex Makefile
+curve_fitting.pdf: curve_fitting.tex #Makefile
 	$(CC) --enable-write18 $< &&	$(CC) $< && $(CC) $<
 
 clean:
