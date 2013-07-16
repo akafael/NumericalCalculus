@@ -40,9 +40,10 @@
 
 \begin{luacode}
   function readEquationTex(vecEq)
+    -- TODO verificar problemas para valores 3, 5 e 10
     local texEq = {}
 
-    for eq in pairs(vecEq) do
+    for _,eq in ipairs(vecEq) do
       local texfile = io.open(table.concat({'pol','.tex'},eq),'r')
       texEq = texfile:read("*all")
       tex.sprint(table.concat({eq,texEq},' & ')," \\\\")
@@ -58,7 +59,7 @@
     \label{#1}
     \centering
     \caption{#3}
-    \begin{tabular}{*{2}{c}}
+    \begin{tabular}{l p{10cm}}
       \hline
       $i$ & $f_i(x)$\\
       \hline
