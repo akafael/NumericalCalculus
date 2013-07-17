@@ -270,11 +270,12 @@ if __name__ == '__main__':
     # Questão 2
     #interp = interpolador(table)
     
-    #multiple_plot([interp], ['Interpolacao'], (-100, 100))
+    multiple_plot([interp], ['Interpolacao'],"graph2.png", (-100, 100))
     #print 'Interpolador => %s' % to_str(interp)
     
     
     # Questão 3
+    # TODO calcular derivada para as funções de aproximação
     first = derivative_first(table)
     second = derivative_second(table)
     
@@ -282,8 +283,11 @@ if __name__ == '__main__':
     print_matrix([first])
     print 'Derivada segunda'
     print_matrix([second])
+
+    multiple_plot([table,first,second],['dados','1 derivada','2 derivada'],"graph3.png")
     
     # Questão 4
+    # TODO Calcular integral para as funções de aproximação
     #integral = integral_trapezio(table)
     #print 'Integral pelo metodo do trapezio: %f' % integral
     
