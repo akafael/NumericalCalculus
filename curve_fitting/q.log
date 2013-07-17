@@ -1,0 +1,34 @@
+This is LuaTeX, Version beta-0.70.2-2012091206 (TeX Live 2012/Debian) (format=lualatex 2013.3.19)  15 JUL 2013 21:19
+ restricted \write18 enabled.
+**curve_fitting.tex
+(/usr/share/texlive/texmf-dist/tex/latex/tools/q.tex
+LaTeX2e <2011/06/27>
+LuaTeX adaptation of babel <v3.8m-luatex-1.5> and hyphenation patterns for engl
+ish, dumylang, nohyphenation, ethiopic, farsi, arabic, pinyin, croatian, bulgar
+ian, ukrainian, russian, slovak, czech, danish, dutch, usenglishmax, ukenglish,
+ finnish, french, basque, ngerman, german, swissgerman, ngerman-x-2012-05-30, g
+erman-x-2012-05-30, monogreek, greek, ibycus, ancientgreek, hungarian, bengali,
+ tamil, hindi, telugu, gujarati, sanskrit, malayalam, kannada, assamese, marath
+i, oriya, panjabi, italian, latin, latvian, lithuanian, mongolian, mongolianlmc
+, nynorsk, bokmal, indonesian, esperanto, coptic, welsh, irish, interlingua, se
+rbian, serbianc, slovenian, friulan, romansh, estonian, romanian, armenian, upp
+ersorbian, turkish, afrikaans, icelandic, kurmanji, polish, portuguese, galicia
+n, catalan, spanish, swedish, thai, loaded.
+File ignored
+)
+! Emergency stop.
+<*> curve_fitting.tex
+                     
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 9 strings out of 494125
+ 100000,552014 words of node,token memory allocated 188 words of node memory still in use:
+   31 glue_spec, 1 dir nodes
+   avail lists: 2:12,3:1
+ 3757 multiletter control sequences out of 65536+200000
+ 14 fonts using 563007 bytes
+ 5i,0n,2p,96b,14s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
