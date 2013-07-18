@@ -15,19 +15,27 @@
           numl[#numl+1] = tostring(n)
         end
         numC = #numl -- rever esta parte
-        tex.sprint(table.concat(numl," & ")," \\\\");
+        tex.sprint(table.concat(numl," & "),"\\\\")
     end
   end
+
+  function readfileDat0(filename)
+     local tableData = {}
+     tableData,numC = readfileDat0(filename)
+     tex.sprint(table.concat(tableData,"\\\\"))
+  end
+
 \end{luacode}
 
-\newcommand{\luaTable}[4][\directlua{tex.print(numC)}]
+\newcommand{\luaTable}[5][\directlua{tex.print(numC)}]
 {
   \begin{table}[H]
   \centering
+  \label{#4}
   \caption{#3}
   \begin{tabular}{*{#1}{c}}
   \hline
-  #4\\
+  #5\\
   \hline
   \directlua{readfileDat('#2')}
   \hline
@@ -61,7 +69,7 @@
     \label{#1}
     \centering
     \caption{#3}
-    \begin{tabular}{l p{10cm}}
+    \begin{tabular}{c p{10cm}}
       \hline
       $i$ & $f_i(x)$\\
       \hline
@@ -77,11 +85,14 @@
 
 \newcounter{cGraph}
 \setcounter{cGraph}{1}
-\newcommand{\plotedFigure}[2][\value{cGraph}]{
+\newcommand{\plotedFigure}[2][\thecGraph]{
   \begin{figure}[H]
     \centering
-    \includegraphics[width=8cm]{../image/graph#1.png}
+    \label{fig:g#1}
+    \includegraphics[width=10cm]{../image/graph#1.png}
     \caption{#2}
   \end{figure}
   \stepcounter{cGraph}
 }
+
+% -----------------------------------------------------------------

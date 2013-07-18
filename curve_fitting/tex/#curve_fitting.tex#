@@ -16,21 +16,21 @@
 \input{./relat_aux.tex}
 % Interpolação Polinomial -------------------------------------------
 \section{Interpolação Polinomial}
-\luaTable[3]{table1.dat}{Tabela}{$i$ & $x_i$ & $y_i$}
+\luaTable[3]{table1.dat}{Dados - tabela 1}{$i$ & $x_i$ & $y_i$}
 \paragraph{Questão 1:}A partir dos dados da tabela () , foram calculados as aproximações polinomiais nos graus 1 ,3 , 5  e 10. Registrados na tabela \ref{tbPoly}
 \polyTable[tbPoly]{1,3,5,10}{Polinômios gerados}
-\plotedFigure{Gráfico das curvas de ajuste polinômial}
+\plotedFigure[1]{Gráfico das curvas de ajuste polinômial}
 
 %% q2: polinômio de lagrange vs polinômio interpolador
 
-\plotedFigure{Gráfico do polinômio interpolador}
-{\input{pol17.tex} \centering}
+\plotedFigure[2]{Gráfico do polinômio interpolador}
+{$P(x) =$\ \input{pol16.tex} \centering}
 
 %% q3: derivadas (montar tabela)
-\plotedFigure{Gráfico das derivadas}
-
+\plotedFigure[3]{Gráfico das derivadas}
 %% q4: integral (montar tabela)
 
+%\luaTableInt{tableIntegrate.dat}{Comparativo do valor da integral}
 % -------------------------------------------------------------------
 
 % -------------------------------------------------------------------

@@ -15,22 +15,29 @@
 \input{./relat_capa.tex}
 \input{./relat_aux.tex}
 % Interpolação Polinomial -------------------------------------------
-\section{Interpolação Polinomial}
-\luaTable[3]{table1.dat}{Tabela}{$i$ & $x_i$ & $y_i$}
-\paragraph{Questão 1:}A partir dos dados da tabela () , foram calculados as aproximações polinomiais nos graus 1 ,3 , 5  e 10. Registrados na tabela \ref{tbPoly}
-\polyTable[tbPoly]{1,3,5,10}{Polinômios gerados}
-\plotedFigure{Gráfico das curvas de ajuste polinômial}
+\section{Parte 1}
+\luaTable[3]{table1.dat}{Dados - tabela 1}{tb:dados1}{$i$ & $x_i$ & $y_i$}
+\paragraph{Questão 1:}A partir dos dados da tabela \ref{tb:dados1} , foram calculados as aproximações polinomiais nos graus 1, 3, 5 e 10. Obteve-se as curvas ilustradas no gráfico \ref{fig:g1}
+\plotedFigure[1]{Gráfico das curvas de ajuste polinômial}
+\paragraph{}As quais são definidas pelas expressões registradas na tabela \ref{tb:poly}
+
+\polyTable[tb:poly]{1,3,5,10}{Polinômios gerados}
 
 %% q2: polinômio de lagrange vs polinômio interpolador
+\paragraph{Questão 2:}
+\plotedFigure[2]{Gráfico do polinômio interpolador}
+\paragraph{}Em que o polinômio interpolador é definido pela expressão:
+{$P(x) =$\ \input{pol16.tex} \centering}
 
-\plotedFigure{Gráfico do polinômio interpolador}
-{\input{pol17.tex} \centering}
+%% q3: derivadas (montar tabela comparando com a derivada das aproximações)
+\paragraph{Questão 3:}Com base no método de diferenças finitas obtemos a seguintes derivas:
+\plotedFigure[3]{Gráfico da primeira derivada}
+\plotedFigure[4]{Gráfico da segunda derivada}
+%% q4: integral (montar tabela comparando com a integral das aproximações)
 
-%% q3: derivadas (montar tabela)
-\plotedFigure{Gráfico das derivadas}
-%% q4: integral (montar tabela)
-
+\paragraph{Questão 4:}Calculando a integral a partir dos dados obteve-se os seguintes valores para os métodos do \textit{Trapézio} e $\frac{1}{3}$\textit{Simpson}:
+\luaTable[2]{tableIntegrate.dat}{Comparativo do valor da integral}{tb:int}{\textit{Trapézio} & $\frac{1}{3}$\textit{Simpson}}
 % -------------------------------------------------------------------
-
+\section{Parte 2}
 % -------------------------------------------------------------------
 \end{document}

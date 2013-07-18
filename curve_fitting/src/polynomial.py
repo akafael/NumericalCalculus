@@ -237,10 +237,10 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     versus os dados no vetor x.
     """
     command = ""
-    command += "set terminal pngcairo size 350,200 enhanced font 'Verdana,10\n"
+    command += "set terminal pngcairo enhanced font \'Verdana,10\'\n"
     command += 'set yrange [%f:%f]\n' % yrange
     command += 'set key top\n'
-    command += 'outfile %s \n' % str('../image/'+nameGraph)
+    command += 'outfile = \"%s\" \n' % str('../image/'+nameGraph)
     command += 'set output outfile\n'
     for i, polynomial in enumerate(polynomials):
         command += 'f%d(x) = %s\n' % (i, to_str(polynomial))
@@ -254,13 +254,12 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     
 def multiple_integrate(data,nameFile="tableIntegrate.dat"):
     datafile = open("../data/"+nameFile,'w')
-    s = ""
-    for dataEq in data:
-        s += integral_trapezio(dataEq)+'\t'
-        s += integral_simpson(dataEq)+'\n'
 
-    dataFile.write(s)
-    dataFile.close()
+    s = str(integral_trapezio(data))+'\t'
+    s += str(integral_simpson(data))+'\n'
+
+    datafile.write(s)
+    datafile.close
     
 if __name__ == '__main__':
     table = read_table()
@@ -274,13 +273,13 @@ if __name__ == '__main__':
         titles.append('Grau %d' % degree)
         print 'Grau %d => ' % degree + to_str(coef)
     
-    multiple_plot(polynomials, titles)
+    # multiple_plot(polynomials, titles)
     
     # Questão 2
-    #interp = interpolador(table)
+    interp = interpolador(table)
     
     multiple_plot([interp], ['Interpolacao'],"graph2.png", (-100, 100))
-    #print 'Interpolador => %s' % to_str(interp)
+    print 'Interpolador => %s' % to_str(interp)
     
     
     # Questão 3
@@ -293,17 +292,19 @@ if __name__ == '__main__':
     print 'Derivada segunda'
     print_matrix([second])
 
-    multiple_plot([table,first,second],['dados','1 derivada','2 derivada'],"graph3.png")
+
+    multiple_plot([first], ['1 derivada'],"graph3.png",(-100,100))
+    multiple_plot([second], ['2 derivada'],"graph4.png",(-100,100))
+    #multiple_plot([table,first,second],['dados','1','2'],"graph3.png")
     
     # Questão 4
     # TODO Calcular integral para as funções de aproximação
-    dataPol = [table]
-    dataPol.extend(polynomials)
-    dataPol.extend(interp)
-    multiple_integrate(dataPol)
+    
+    multiple_integrate(table)
+
     integral = integral_trapezio(table)
-    #print 'Integral pelo metodo do trapezio: %f' % integral
+    print 'Integral pelo metodo do trapezio: %f' % integral
     
     integral = integral_simpson(table)
-    #print 'Integral pelo metodo 1/3 de Simpson: %f' % integral 
+    print 'Integral pelo metodo 1/3 de Simpson: %f' % integral 
     
