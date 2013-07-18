@@ -38,6 +38,8 @@
 % Exemplo de uso:
 % \luaTable[3]{teste.dat}{legenda}{x&y&z}
 
+% -----------------------------------------------------------------
+
 \begin{luacode}
   function readEquationTex(vecEq)
     -- TODO verificar problemas para valores 3, 5 e 10
@@ -70,3 +72,16 @@
 }
 
 %% Exemplo de uso \eqTable{1,3,5,10}{Polinômios gerados}
+
+% ----------------------------------------------------------------- 
+
+\newcounter{cGraph}
+\setcounter{cGraph}{1}
+\newcommand{\plotedFigure}[2][\value{cGraph}]{
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{../image/graph#1.png}
+    \caption{#2}
+  \end{figure}
+  \stepcounter{cGraph}
+}

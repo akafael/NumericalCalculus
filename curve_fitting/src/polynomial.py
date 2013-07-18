@@ -3,7 +3,6 @@
 
 """
 
-
 @autor Diógenes
 @autor Rafael Lima
 
@@ -237,8 +236,9 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     Chama o processo gnuplot para plotar um gráfico dos dados no vetor y
     versus os dados no vetor x.
     """
-    
-    command = 'set yrange [%f:%f]\n' % yrange
+    command = ""
+    command += "set terminal pngcairo size 350,200 enhanced font 'Verdana,10\n"
+    command += 'set yrange [%f:%f]\n' % yrange
     command += 'set key top\n'
     command += 'outfile %s \n' % str('../image/'+nameGraph)
     command += 'set output outfile\n'
@@ -252,6 +252,15 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     print command
     os.system("echo '%(command)s' | gnuplot -persist" % vars())
     
+def multiple_integrate(data,nameFile="tableIntegrate.dat"):
+    datafile = open("../data/"+nameFile,'w')
+    s = ""
+    for dataEq in data:
+        s += integral_trapezio(dataEq)+'\t'
+        s += integral_simpson(dataEq)+'\n'
+
+    dataFile.write(s)
+    dataFile.close()
     
 if __name__ == '__main__':
     table = read_table()
@@ -288,10 +297,13 @@ if __name__ == '__main__':
     
     # Questão 4
     # TODO Calcular integral para as funções de aproximação
-    #integral = integral_trapezio(table)
+    dataPol = [table]
+    dataPol.extend(polynomials)
+    dataPol.extend(interp)
+    multiple_integrate(dataPol)
+    integral = integral_trapezio(table)
     #print 'Integral pelo metodo do trapezio: %f' % integral
     
-    #integral = integral_simpson(table)
+    integral = integral_simpson(table)
     #print 'Integral pelo metodo 1/3 de Simpson: %f' % integral 
-    
     
