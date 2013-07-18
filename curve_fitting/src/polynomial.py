@@ -3,8 +3,7 @@
 
 """
 
-@autor Diógenes
-@autor Rafael Lima
+@autors Diógenes Oliveira, Felipe Bressan, Rafael Lima
 
 """
 import pprint
@@ -141,7 +140,7 @@ def interpolador(table):
 
 def derivative_first(table):
     
-    deltaT = table[1][0] - table[0][0]
+    deltaT = 0.1
     d = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
     
     for i in range(1, len(table)-1):
@@ -152,13 +151,13 @@ def derivative_first(table):
 
 def derivative_second(table):
     
-    deltaT = table[1][0] - table[0][0]
-    d = [(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/deltaT]
+    deltaT = 0.1
+    d = [(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/deltaT^2]
     
     for i in range(1, len(table)-1):
-        d.append((1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/deltaT)
+        d.append((1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/deltaT^2)
         
-    d.append((2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/deltaT)
+    d.append((2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/deltaT^2)
     return d
 
 
