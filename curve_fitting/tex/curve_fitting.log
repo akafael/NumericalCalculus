@@ -1,4 +1,4 @@
-This is LuaTeX, Version beta-0.70.2-2012091205 (TeX Live 2012/Debian) (format=lualatex 2013.5.12)  18 JUL 2013 16:30
+This is LuaTeX, Version beta-0.70.2-2012091205 (TeX Live 2012/Debian) (format=lualatex 2013.5.12)  18 JUL 2013 21:56
  restricted \write18 enabled.
 **curve_fitting.tex
 (./curve_fitting.tex
@@ -497,7 +497,7 @@ runsystem(../src/./polynomial.py)...disabled (restricted).
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./relat_aux.tex
 \c@cGraph=\count285
 )
-<../image/graph1.png, id=18, 642.4pt x 481.8pt>
+<../image/graph1.png, id=22, 642.4pt x 481.8pt>
 File: ../image/graph1.png Graphic file (type png)
  <use ../image/graph1.png>
 Package pdftex.def Info: ../image/graph1.png used on input line 21.
@@ -514,40 +514,76 @@ stack traceback:
 l.24 ...le[tb:poly]{1,3,5,10}{Polinômios gerados}
                                                   
 ? 
-<../image/graph2.png, id=30, 642.4pt x 481.8pt>
+<../image/graph2.png, id=35, 642.4pt x 481.8pt>
 File: ../image/graph2.png Graphic file (type png)
  <use ../image/graph2.png>
-Package pdftex.def Info: ../image/graph2.png used on input line 28.
+Package pdftex.def Info: ../image/graph2.png used on input line 29.
 (pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
 
 [3 <../image/graph1.png>] (./pol16.tex)
-<../image/graph3.png, id=41, 642.4pt x 481.8pt>
-File: ../image/graph3.png Graphic file (type png)
- <use ../image/graph3.png>
-Package pdftex.def Info: ../image/graph3.png used on input line 34.
-(pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
+Overfull \hbox (12.93083pt too wide) in paragraph at lines 43--45
+[] [][] \T1/aer/m/n/10.95 Tais aprox-i-mações para derivada as-sim cal-cu-lad
+as são de-nom-i-nadas derivadas
+ []
 
-[4 <../image/graph2.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 42.
- [5 <../image/graph3.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 42.
+[4 <../image/graph2.png>]LuaTeX warning (ext4): destination with the same ident
+ifier (name{equation.1.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.48 \begin{equation}
+                     LuaTeX warning (ext4): destination with the same identifie
+r (name{equation.1.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.54 \begin{equation}
+                     LuaTeX warning (ext4): destination with the same identifie
+r (name{equation.1.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58 \begin{equation}
+                      <../image/graph3.png, id=59, 642.4pt x 481.8pt>
+File: ../image/graph3.png Graphic file (type png)
+
+<use ../image/graph3.png>
+Package pdftex.def Info: ../image/graph3.png used on input line 63.
+(pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
+ <../image/graph4.png, id=60, 642.4pt x 481.8pt>
+File: ../image/graph4.png Graphic file (type png)
+
+<use ../image/graph4.png>
+Package pdftex.def Info: ../image/graph4.png used on input line 64.
+(pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
+ [5LuaTeX warning (ext4): destination with the same identifier (name{equation.1
+.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.65 
+      <../image/graph3.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
+ [6 <../image/graph4.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
  (./curve_fitting.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 42.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 42.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
 Package rerunfilecheck Info: File `curve_fitting.out' has not changed.
-(rerunfilecheck)             Checksum: 88DCEDEA4D08E440AEEE2B6EA9A6E3D1;60.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 42.
+(rerunfilecheck)             Checksum: 77C54564F507B088D3A3FA89DB558CCB;84.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  )
 
 Here is how much of LuaTeX's memory you used:
- 7602 strings out of 494125
+ 7620 strings out of 494125
  100000,552014 words of node,token memory allocated
- 348 words of node memory still in use:
-   5 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 46 glue_spec, 1 write nodes
-   avail lists: 2:22,3:178,4:1126,5:145,6:922,7:156,8:13,9:274,10:40
- 10742 multiletter control sequences out of 65536+200000
+ 379 words of node memory still in use:
+   5 hlist, 2 vlist, 2 rule, 2 glue, 7 kern, 46 glue_spec, 1 write nodes
+   avail lists: 2:22,3:186,4:1125,5:182,6:2395,7:156,8:18,9:384,10:162
+ 10748 multiletter control sequences out of 65536+200000
  60 fonts using 1687475 bytes
- 43i,13n,43p,357b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,13n,43p,522b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive
@@ -555,11 +591,12 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmti10.pfb>
-Output written on curve_fitting.pdf (5 pages, 146817 bytes).
+ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti10.pfb>
+Output written on curve_fitting.pdf (6 pages, 170941 bytes).
 
-PDF statistics: 86 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 131072)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 107 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 28 named destinations out of 1000 (max. 131072)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
