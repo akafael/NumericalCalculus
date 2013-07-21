@@ -141,23 +141,25 @@ def interpolador(table):
 def derivative_first(table):
     
     deltaT = 0.1
-    d = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
+    a = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
+    d = [[table[0][0],a]]
     
     for i in range(1, len(table)-1):
-        d.append((-0.5 * table[i-1][1] + 0.5 * table[i+1][1])/deltaT)
+        a=(-0.5 * table[i-1][1] + 0.5 * table[i+1][1])/deltaT
+        d.append([table[i][0],a])
     
-    d.append((-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT)
+    d.append([table[-1][0], (-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT])
     return d
 
 def derivative_second(table):
     
     deltaT = 0.1
-    d = [(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/deltaT^2]
+    d = [[table[0][0],(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/(deltaT*deltaT)]]
     
     for i in range(1, len(table)-1):
-        d.append((1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/deltaT^2)
+        d.append([table[i][0],(1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/(deltaT*deltaT)])
         
-    d.append((2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/deltaT^2)
+    d.append([table[-1][0],(2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/(deltaT*deltaT)])
     return d
 
 
@@ -248,7 +250,30 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     command += 'plot '
     command += ', '.join(['f%d(x) title "%s"' % (i, titles[i]) for i in range(len(polynomials))] +
                          ["\"../data/table1.dat\" u 2:3 t \"Dados\""])
-    print command
+    print "[gnuplot:]\n"+command
+    os.system("echo '%(command)s' | gnuplot -persist" % vars())
+
+def plot_dat(data, titles,nameGraph="graph2.png", yrange=(-20.0, 20.0)):
+    u"""
+    Chama o processo gnuplot para plotar um gráfico dos dados no vetor y
+    versus os dados no vetor x.
+    """
+    command = ""
+    command += "set terminal pngcairo enhanced font \'Verdana,10\'\n"
+    command += 'set yrange [%f:%f]\n' % yrange
+    command += 'set key top\n'
+    command += 'outfile = \"%s\" \n' % str('../image/'+nameGraph)
+    command += 'set output outfile\n'        
+    command += "plot "
+    for i, d in enumerate(data):
+	points = "\" <echo \' "
+	for j in range(0,len(d)):
+		 points += str(d[j][0])+" "+str(d[j][1])+"\n"
+	points += "\'\" w p t "+titles[i]
+	command +=  points + ','
+	
+    command += "\"../data/table1.dat\" u 2:3 t \"Dados\""
+    #print "[gnuplot:]\n"+command
     os.system("echo '%(command)s' | gnuplot -persist" % vars())
     
 def multiple_integrate(data,nameFile="tableIntegrate.dat"):
@@ -272,7 +297,7 @@ if __name__ == '__main__':
         titles.append('Grau %d' % degree)
         print 'Grau %d => ' % degree + to_str(coef)
     
-    # multiple_plot(polynomials, titles)
+    multiple_plot(polynomials, titles,"graph1.png",(-5,15))
     
     # Questão 2
     interp = interpolador(table)
@@ -286,14 +311,13 @@ if __name__ == '__main__':
     first = derivative_first(table)
     second = derivative_second(table)
     
-    print 'Derivada primeira'
-    print_matrix([first])
-    print 'Derivada segunda'
-    print_matrix([second])
+    #print 'Derivada primeira'
+    #print_matrix(first)
+    #print 'Derivada segunda'
+    #print_matrix(second)
 
 
-    multiple_plot([first], ['1 derivada'],"graph3.png",(-100,100))
-    multiple_plot([second], ['2 derivada'],"graph4.png",(-100,100))
+    plot_dat([first,second], ['1 derivada','2 derivada'],"graph3.png",(-100,100))
     #multiple_plot([table,first,second],['dados','1','2'],"graph3.png")
     
     # Questão 4
