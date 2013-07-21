@@ -56,10 +56,8 @@
     for _,eq in ipairs(vecEq) do
       local texfile = io.open(table.concat({'pol','.tex'},eq),'r')
       texEq = texfile:read("*all")
-      tex.sprint(table.concat({eq,texEq},' & ')," \\\\")
+      tex.sprint(table.concat({eq,texEq},' & ').." \\\\")
     end
-
-    tex.sprint(tableEq)
   end
 \end{luacode}
 

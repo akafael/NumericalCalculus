@@ -1,5 +1,5 @@
-This is LuaTeX, Version beta-0.70.2-2012091205 (TeX Live 2012/Debian) (format=lualatex 2013.5.12)  18 JUL 2013 21:56
- restricted \write18 enabled.
+This is LuaTeX, Version beta-0.70.2-2012091205 (TeX Live 2012/Debian) (format=lualatex 2013.5.12)  21 JUL 2013 16:28
+ \write18 enabled.
 **curve_fitting.tex
 (./curve_fitting.tex
 LaTeX2e <2011/06/27>
@@ -14,6 +14,17 @@ i, oriya, panjabi, italian, latin, latvian, lithuanian, mongolian, mongolianlmc
 rbian, serbianc, slovenian, friulan, romansh, estonian, romanian, armenian, upp
 ersorbian, turkish, afrikaans, icelandic, kurmanji, polish, portuguese, galicia
 n, catalan, spanish, swedish, thai, loaded.
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2      P
+          acotes e configurações padrão do estilo "article"\ ------------...
+
+? 
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
@@ -25,12 +36,17 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \c@subsubsection=\count82
 \c@paragraph=\count83
 \c@subparagraph=\count84
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 2--284
+[][]Pacotes
+ []
+
 \c@figure=\count85
 \c@table=\count86
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (./relat_layout.tex
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./relat_layout.tex
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -371,12 +387,12 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 65.
 
 ! Undefined control sequence.
 l.67       \addto
-                 \captionsbrazilian{\renewcommand{\contentsname}{Índice}} %...
+                 \captionsbrazilian{\renewcommand{\contentsname}{\'Indice}} ...
 
 ? 
 ! Undefined control sequence.
 l.67       \addto\captionsbrazilian
-                                   {\renewcommand{\contentsname}{Índice}} %...
+                                   {\renewcommand{\contentsname}{\'Indice}} ...
 
 ? 
 ) (/usr/share/texlive/texmf-dist/tex/lualatex/luacode/luacode.sty
@@ -429,22 +445,21 @@ ack
 \luacode@lines=\toks32
 \luacode@table@soft=\luatexcatcodetable13
 )
-(./curve_fitting.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-
+No file curve_fitting.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count278
@@ -474,7 +489,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box257
-Package hyperref Info: Link coloring ON on input line 13.
+Package hyperref Info: Link coloring ON on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -484,44 +499,58 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count284
 )
-LaTeX Info: Redefining \ref on input line 13.
-LaTeX Info: Redefining \pageref on input line 13.
-LaTeX Info: Redefining \nameref on input line 13.
+LaTeX Info: Redefining \ref on input line 14.
+LaTeX Info: Redefining \pageref on input line 14.
+LaTeX Info: Redefining \nameref on input line 14.
 
 (./curve_fitting.out) (./curve_fitting.out)
 \@outlinefile=\write3
  (./relat_capa.tex [1
 
-runsystem(../src/./polynomial.py)...disabled (restricted).
+runsystem(../src/./polynomial.py)...executed.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./relat_aux.tex
+])
+(./relat_aux.tex
 \c@cGraph=\count285
 )
-<../image/graph1.png, id=22, 642.4pt x 481.8pt>
+
+LaTeX Warning: Reference `tb:dados1' on page 2 undefined on input line 21.
+
+
+LaTeX Warning: Reference `fig:g1' on page 2 undefined on input line 21.
+
+<../image/graph1.png, id=23, 642.4pt x 481.8pt>
 File: ../image/graph1.png Graphic file (type png)
  <use ../image/graph1.png>
-Package pdftex.def Info: ../image/graph1.png used on input line 21.
+Package pdftex.def Info: ../image/graph1.png used on input line 22.
 (pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
 
 [2]
-! LuaTeX error <\directlua >:11: no string to print
-stack traceback:
-	[C]: in function 'sprint'
-	<\directlua >:11: in function 'readEquationTex'
-	<\directlua >:1: in main chunk.
-\\polyTable ... \directlua {readEquationTex({#2})}
-                                                   \hline \end {tabular} \en...
-l.24 ...le[tb:poly]{1,3,5,10}{Polinômios gerados}
-                                                  
-? 
-<../image/graph2.png, id=35, 642.4pt x 481.8pt>
+
+LaTeX Warning: Reference `tb:poly' on page 3 undefined on input line 23.
+
+
+LaTeX Warning: Reference `fig:g2' on page 3 undefined on input line 28.
+
+<../image/graph2.png, id=33, 642.4pt x 481.8pt>
 File: ../image/graph2.png Graphic file (type png)
  <use ../image/graph2.png>
-Package pdftex.def Info: ../image/graph2.png used on input line 29.
+Package pdftex.def Info: ../image/graph2.png used on input line 30.
 (pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
 
 [3 <../image/graph1.png>] (./pol16.tex)
-Overfull \hbox (12.93083pt too wide) in paragraph at lines 43--45
+Overfull \hbox (25.83382pt too wide) in paragraph at lines 32--34
+\OT1/cmr/m/n/10.95 17215003096\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 08 \OMS/c
+msy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/10.95 + 47084000146\OML/cm
+m/m/it/10.95 :\OT1/cmr/m/n/10.95 94 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x
+[] \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 92677107329\OML/cmm/m/it/10.95 :\OT
+1/cmr/m/n/10.95 64 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/1
+0.95 + 135535435033\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 46 \OMS/cmsy/m/n/10.
+95 
+ []
+
+
+Overfull \hbox (12.93083pt too wide) in paragraph at lines 44--46
 [] [][] \T1/aer/m/n/10.95 Tais aprox-i-mações para derivada as-sim cal-cu-lad
 as são de-nom-i-nadas derivadas
  []
@@ -530,73 +559,158 @@ as são de-nom-i-nadas derivadas
 ifier (name{equation.1.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.48 \begin{equation}
+l.49 \begin{equation}
                      LuaTeX warning (ext4): destination with the same identifie
 r (name{equation.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 \begin{equation}
+l.55 \begin{equation}
                      LuaTeX warning (ext4): destination with the same identifie
 r (name{equation.1.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \begin{equation}
-                      <../image/graph3.png, id=59, 642.4pt x 481.8pt>
-File: ../image/graph3.png Graphic file (type png)
-
-<use ../image/graph3.png>
-Package pdftex.def Info: ../image/graph3.png used on input line 63.
-(pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
- <../image/graph4.png, id=60, 642.4pt x 481.8pt>
+l.59 \begin{equation}
+                      <../image/graph4.png, id=55, 642.4pt x 481.8pt>
 File: ../image/graph4.png Graphic file (type png)
 
 <use ../image/graph4.png>
-Package pdftex.def Info: ../image/graph4.png used on input line 64.
+Package pdftex.def Info: ../image/graph4.png used on input line 65.
 (pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
  [5LuaTeX warning (ext4): destination with the same identifier (name{equation.1
 .1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.65 
-      <../image/graph3.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
- [6 <../image/graph4.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
+l.76 \begin{equation}
+                     \label{eq:spline.Ti} <../image/graph4.png>]
+! Missing delimiter (. inserted).
+<to be read again> 
+                   {
+l.84 \left{
+           
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.91 \right
+           .
+? 
+! Missing delimiter (. inserted).
+<to be read again> 
+                   {
+l.96 \left{
+           
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.103 \right
+            .
+? 
+! Double subscript.
+l.118 a_i\\b_i\\_c_
+                   i\\d_i\\
+? 
+! Missing delimiter (. inserted).
+<to be read again> 
+                   {
+l.131 \left{
+            
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.138 \right
+            .
+? 
+
+LaTeX Warning: Reference `eq:splines.Yi.coef' on page 6 undefined on input line
+ 160.
+
+
+Overfull \hbox (62.36229pt too wide) detected at line 165
+\OT1/cmr/m/n/10.95 3 \OMS/cmsy/m/n/10.95  \OT1/cmr/m/n/10.95 (2 \OMS/cmsy/m/n/
+10.95  \OML/cmm/m/it/10.95 y[] \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 2 \OMS
+/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 y[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10
+.95 D[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 D[]\OT1/cmr/m/n/10.95 ) + (\OM
+S/cmsy/m/n/10.95  \OT1/cmr/m/n/10.95 3 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.9
+5 y[] \OT1/cmr/m/n/10.95 + 3 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 y[] \OMS
+/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 2 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.9
+5 D[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 D[]\OT1/cmr/m/n/10.95 ) = (\OMS
+/cmsy/m/n/10.95  \OT1/cmr/m/n/10.95 3 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95
+ y[] \OT1/cmr/m/n/10.95 + 3 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 y[] \OMS/
+cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 2 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95
+ D[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 D[]\OT1/cmr/m/n/10.95 )
+ []
+
+[6]
+! Missing delimiter (. inserted).
+<to be read again> 
+                   {
+l.175 \left{
+            
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.180 \right
+            .
+? 
+
+! LaTeX Error: \begin{subequations} on input line 155 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.192 \end{document}
+                    
+? 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
  (./curve_fitting.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
 Package rerunfilecheck Info: File `curve_fitting.out' has not changed.
 (rerunfilecheck)             Checksum: 77C54564F507B088D3A3FA89DB558CCB;84.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
  )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 155 (\begingroup)
+### bottom level
 
 Here is how much of LuaTeX's memory you used:
- 7620 strings out of 494125
+ 7629 strings out of 494125
  100000,552014 words of node,token memory allocated
- 379 words of node memory still in use:
-   5 hlist, 2 vlist, 2 rule, 2 glue, 7 kern, 46 glue_spec, 1 write nodes
-   avail lists: 2:22,3:186,4:1125,5:182,6:2395,7:156,8:18,9:384,10:162
- 10748 multiletter control sequences out of 65536+200000
+ 454 words of node memory still in use:
+   5 hlist, 2 vlist, 2 rule, 2 glue, 15 kern, 48 glue_spec, 1 write nodes
+   avail lists: 2:22,3:345,4:1858,5:164,6:2528,7:156,8:32,9:730,10:151
+ 10746 multiletter control sequences out of 65536+200000
  60 fonts using 1687475 bytes
- 43i,13n,43p,522b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,13n,43p,522b,409s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb>
-Output written on curve_fitting.pdf (6 pages, 170941 bytes).
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti10.pfb>
+Output written on curve_fitting.pdf (8 pages, 180022 bytes).
 
-PDF statistics: 107 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 28 named destinations out of 1000 (max. 131072)
+PDF statistics: 134 PDF objects out of 1000 (max. 8388607)
+ 109 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 131072)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
