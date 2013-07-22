@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 *-*
+<<<<<<< HEAD
 
 """
 
@@ -101,6 +102,49 @@ def solve_system(a, b):
     
     return [r[n,0] for n in range(r.size)]
 
+=======
+
+"""
+
+@autors Diógenes Oliveira, Felipe Bressan, Rafael Lima
+
+"""
+import pprint
+import numpy
+import os
+import sys
+
+from utilities import(
+        get_size,
+        new_matrix,
+        transpose,
+        product,
+        add_and_multiply,
+        get_column,
+        solve_system,
+        print_matrix
+)
+
+def read_table():
+    """
+    Le a tabela de dados do arquivo table1.dat e a retorna na forma
+    de uma matriz.
+    """
+    table = []
+    datafile = open('../data/table1.dat','r')
+    
+    # read data of table1.dat:
+    for line in datafile:
+        try:
+            i, t_i, y_i = [n for n in line.split() if n]
+            table.append([float(t_i), float(y_i)])
+        except ValueError:
+            pass
+    
+    datafile.close()
+
+    return table
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
 
 def get_A(table, degree):
     """
@@ -141,6 +185,7 @@ def interpolador(table):
 def derivative_first(table):
     
     deltaT = 0.1
+<<<<<<< HEAD
     a = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
     d = [[table[0][0],a]]
     
@@ -149,17 +194,34 @@ def derivative_first(table):
         d.append([table[i][0],a])
     
     d.append([table[-1][0], (-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT])
+=======
+    d = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
+    
+    for i in range(1, len(table)-1):
+        d.append((-0.5 * table[i-1][1] + 0.5 * table[i+1][1])/deltaT)
+    
+    d.append((-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT)
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
     return d
 
 def derivative_second(table):
     
     deltaT = 0.1
+<<<<<<< HEAD
     d = [[table[0][0],(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/(deltaT*deltaT)]]
     
     for i in range(1, len(table)-1):
         d.append([table[i][0],(1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/(deltaT*deltaT)])
         
     d.append([table[-1][0],(2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/(deltaT*deltaT)])
+=======
+    d = [(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/(deltaT**2)]
+    
+    for i in range(1, len(table)-1):
+        d.append((1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/(deltaT**2))
+        
+    d.append((2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/(deltaT**2))
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
     return d
 
 
@@ -188,6 +250,7 @@ def integral_simpson(table):
     
     return soma * deltaT / 3.0
 
+<<<<<<< HEAD
     
 def print_matrix(matrix, format_str='%f'):
     """
@@ -197,6 +260,8 @@ def print_matrix(matrix, format_str='%f'):
         for elem in row:
             print (format_str+' ') % elem,
         print ''
+=======
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
 
 def printDat_matrix(matrix,filename,format_str='%f',):
     """
@@ -209,6 +274,7 @@ def printDat_matrix(matrix,filename,format_str='%f',):
         for elem in row:
             datafile.write()
 
+<<<<<<< HEAD
 def to_str(coef, format_str='%+.2f'):
     """
     Retorna uma representacao em string do polinomio.
@@ -218,6 +284,8 @@ def to_str(coef, format_str='%+.2f'):
         s += (format_str + '*x**%d ') % (coef[i], i)
     return s + ' ' + format_str % coef[0]
 
+=======
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
 def pol2tex(coef,filename="equation.tex", format_str='%+.2f'):
     """
     Imprime arquivo .tex com o polinomio
@@ -250,6 +318,7 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     command += 'plot '
     command += ', '.join(['f%d(x) title "%s"' % (i, titles[i]) for i in range(len(polynomials))] +
                          ["\"../data/table1.dat\" u 2:3 t \"Dados\""])
+<<<<<<< HEAD
     print "[gnuplot:]\n"+command
     os.system("echo '%(command)s' | gnuplot -persist" % vars())
 
@@ -274,6 +343,9 @@ def plot_dat(data, titles,nameGraph="graph2.png", yrange=(-20.0, 20.0)):
 	
     command += "\"../data/table1.dat\" u 2:3 t \"Dados\""
     #print "[gnuplot:]\n"+command
+=======
+    print command
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
     os.system("echo '%(command)s' | gnuplot -persist" % vars())
     
 def multiple_integrate(data,nameFile="tableIntegrate.dat"):
@@ -297,7 +369,11 @@ if __name__ == '__main__':
         titles.append('Grau %d' % degree)
         print 'Grau %d => ' % degree + to_str(coef)
     
+<<<<<<< HEAD
     multiple_plot(polynomials, titles,"graph1.png",(-5,15))
+=======
+    multiple_plot(polynomials, titles)
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
     
     # Questão 2
     interp = interpolador(table)
@@ -311,6 +387,7 @@ if __name__ == '__main__':
     first = derivative_first(table)
     second = derivative_second(table)
     
+<<<<<<< HEAD
     #print 'Derivada primeira'
     #print_matrix(first)
     #print 'Derivada segunda'
@@ -318,6 +395,16 @@ if __name__ == '__main__':
 
 
     plot_dat([first,second], ['1 derivada','2 derivada'],"graph3.png",(-100,100))
+=======
+    print 'Derivada primeira'
+    print_matrix([first])
+    print 'Derivada segunda'
+    print_matrix([second])
+
+
+    multiple_plot([first], ['1 derivada'],"graph3.png",(-100,100))
+    multiple_plot([second], ['2 derivada'],"graph4.png",(-100,100))
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
     #multiple_plot([table,first,second],['dados','1','2'],"graph3.png")
     
     # Questão 4

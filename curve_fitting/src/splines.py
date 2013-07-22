@@ -116,3 +116,7 @@ if __name__ == '__main__':
         
         print t, y
         plot_parametric(y, t)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
