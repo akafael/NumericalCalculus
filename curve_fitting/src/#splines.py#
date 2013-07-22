@@ -86,11 +86,7 @@ def adjust_splines(table, column):
     
     return [get_coef(D, transpose(data)[0], i) for i in range(n-1)]
     
-def derive_splines(splines):
-    for spline in splines:
-        for i in range(0,len(spline))):
-            spline[-i] = spline[-i-1]*i
-            
+
 
 def plot_parametric(y_splines, t_splines,nameGraph="graph5.png", s_range=(0.0, 1.0)):
     """
