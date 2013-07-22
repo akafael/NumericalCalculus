@@ -11,6 +11,18 @@ import numpy
 import os
 import sys
 
+from utilities import(
+        get_size,
+        new_matrix,
+        transpose,
+        product,
+        add_and_multiply,
+        get_column,
+        solve_system,
+        print_matrix,
+        to_str
+)
+
 def read_table():
     """
     Le a tabela de dados do arquivo table1.dat e a retorna na forma
@@ -30,77 +42,6 @@ def read_table():
     datafile.close()
 
     return table
-
-
-def get_size(matrix):
-    """
-    Retorna uma tupla com as dimensoes da matriz (linhas, colunas)
-    """
-    return len(matrix), len(matrix[0])
-
-
-def new_matrix(rows, cols):
-    """
-    Cria uma nova matriz nula com as dimensoes especificadas.
-    """
-    return [ [0.0] * cols for i in range(rows) ]
-    
-    
-def transpose(matrix):
-    """
-    Retorna a matriz transposta.
-    """
-    return [list(row) for row in zip(*matrix)] # Acho que não pode usar isso
-
-
-def product(a, b):
-    """
-    Retorna a matriz produto.
-    """
-    a_rows, a_cols = get_size(a)
-    b_rows, b_cols = get_size(b)
-    
-    if a_cols != b_rows:
-        raise ValueError("Dimensoes incompativeis: %s e %s" % (get_size(a), get_size(b)))
-    
-    product = new_matrix(a_rows, b_cols)
-    for i in range(a_rows):
-        for j in range(b_cols):
-            for k in range(a_cols):
-                product[i][j] += a[i][k] * b[k][j]
-    
-    return product
-
-def add_and_multiply(a, b, factor=1.0):
-    if get_size(a) != get_size(b):
-        raise ValueError("Dimensoes incompativeis: %s e %s" % (get_size(a), get_size(b)))
-    
-    rows, cols = get_size(a)
-    r = new_matrix(rows, cols)
-    for i in range(rows):
-        for j in range(cols):
-            r[i][j] = a[i][j] + factor * b[i][j]
-    
-    return r
-
-
-def get_column(matrix, column):
-    """
-    Retorna a coluna da matriz.
-    """
-    return [[matrix[i][column]] for i in range(len(matrix))]
-
-def solve_system(a, b):
-    """
-    Retorna uma matriz linha com a solucao do sistema.
-    """
-    try:
-        r = numpy.linalg.solve(a, b)
-    except:
-        raise ValueError('Singular matrix')
-    
-    return [r[n,0] for n in range(r.size)]
-
 
 def get_A(table, degree):
     """
@@ -141,25 +82,23 @@ def interpolador(table):
 def derivative_first(table):
     
     deltaT = 0.1
-    a = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
-    d = [[table[0][0],a]]
+    d = [(-1.5 * table[0][1] + 2 * table[1][1] - 0.5 * table[2][1])/deltaT]
     
     for i in range(1, len(table)-1):
-        a=(-0.5 * table[i-1][1] + 0.5 * table[i+1][1])/deltaT
-        d.append([table[i][0],a])
+        d.append((-0.5 * table[i-1][1] + 0.5 * table[i+1][1])/deltaT)
     
-    d.append([table[-1][0], (-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT])
+    d.append((-1.5 * table[-1][1] + 2 * table[-2][1] - 0.5 * table[-3][1])/deltaT)
     return d
 
 def derivative_second(table):
     
     deltaT = 0.1
-    d = [[table[0][0],(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/(deltaT*deltaT)]]
+    d = [(2 * table[0][1]  -5 * table[1][1] +4 * table[2][1] -1 * table[3][1])/(deltaT**2)]
     
     for i in range(1, len(table)-1):
-        d.append([table[i][0],(1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/(deltaT*deltaT)])
+        d.append((1.0 * table[i-1][1] -2.0 * table[i][1] +1.0*table[i+1][1])/(deltaT**2))
         
-    d.append([table[-1][0],(2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/(deltaT*deltaT)])
+    d.append((2 * table[-1][1]  -5 * table[-2][1] +4 * table[-3][1] -1 * table[-4][1])/(deltaT**2))
     return d
 
 
@@ -188,15 +127,6 @@ def integral_simpson(table):
     
     return soma * deltaT / 3.0
 
-    
-def print_matrix(matrix, format_str='%f'):
-    """
-    Imprime a matriz na tela de uma forma conveniente.
-    """
-    for row in matrix:
-        for elem in row:
-            print (format_str+' ') % elem,
-        print ''
 
 def printDat_matrix(matrix,filename,format_str='%f',):
     """
@@ -208,15 +138,6 @@ def printDat_matrix(matrix,filename,format_str='%f',):
     for row in matrix:
         for elem in row:
             datafile.write()
-
-def to_str(coef, format_str='%+.2f'):
-    """
-    Retorna uma representacao em string do polinomio.
-    """
-    s = ''
-    for i in reversed(range(1, len(coef))):
-        s += (format_str + '*x**%d ') % (coef[i], i)
-    return s + ' ' + format_str % coef[0]
 
 def pol2tex(coef,filename="equation.tex", format_str='%+.2f'):
     """
@@ -250,30 +171,7 @@ def multiple_plot(polynomials, titles,nameGraph="graph1.png", yrange=(-20.0, 20.
     command += 'plot '
     command += ', '.join(['f%d(x) title "%s"' % (i, titles[i]) for i in range(len(polynomials))] +
                          ["\"../data/table1.dat\" u 2:3 t \"Dados\""])
-    print "[gnuplot:]\n"+command
-    os.system("echo '%(command)s' | gnuplot -persist" % vars())
-
-def plot_dat(data, titles,nameGraph="graph2.png", yrange=(-20.0, 20.0)):
-    u"""
-    Chama o processo gnuplot para plotar um gráfico dos dados no vetor y
-    versus os dados no vetor x.
-    """
-    command = ""
-    command += "set terminal pngcairo enhanced font \'Verdana,10\'\n"
-    command += 'set yrange [%f:%f]\n' % yrange
-    command += 'set key top\n'
-    command += 'outfile = \"%s\" \n' % str('../image/'+nameGraph)
-    command += 'set output outfile\n'        
-    command += "plot "
-    for i, d in enumerate(data):
-	points = "\" <echo \' "
-	for j in range(0,len(d)):
-		 points += str(d[j][0])+" "+str(d[j][1])+"\n"
-	points += "\'\" w p t "+titles[i]
-	command +=  points + ','
-	
-    command += "\"../data/table1.dat\" u 2:3 t \"Dados\""
-    #print "[gnuplot:]\n"+command
+    print command
     os.system("echo '%(command)s' | gnuplot -persist" % vars())
     
 def multiple_integrate(data,nameFile="tableIntegrate.dat"):
@@ -297,7 +195,7 @@ if __name__ == '__main__':
         titles.append('Grau %d' % degree)
         print 'Grau %d => ' % degree + to_str(coef)
     
-    multiple_plot(polynomials, titles,"graph1.png",(-5,15))
+    multiple_plot(polynomials, titles)
     
     # Questão 2
     interp = interpolador(table)
@@ -311,13 +209,14 @@ if __name__ == '__main__':
     first = derivative_first(table)
     second = derivative_second(table)
     
-    #print 'Derivada primeira'
-    #print_matrix(first)
-    #print 'Derivada segunda'
-    #print_matrix(second)
+    print 'Derivada primeira'
+    print_matrix([first])
+    print 'Derivada segunda'
+    print_matrix([second])
 
 
-    plot_dat([first,second], ['1 derivada','2 derivada'],"graph3.png",(-100,100))
+    multiple_plot([first], ['1 derivada'],"graph3.png",(-100,100))
+    multiple_plot([second], ['2 derivada'],"graph4.png",(-100,100))
     #multiple_plot([table,first,second],['dados','1','2'],"graph3.png")
     
     # Questão 4
@@ -331,3 +230,4 @@ if __name__ == '__main__':
     integral = integral_simpson(table)
     print 'Integral pelo metodo 1/3 de Simpson: %f' % integral 
     
+   
