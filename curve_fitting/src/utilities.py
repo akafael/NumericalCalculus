@@ -71,13 +71,13 @@ def solve_system(a, b):
     
     return [r[n,0] for n in range(r.size)]
 
-def to_str(coef, format_str='%+.2f'):
+def to_str(coef, format_str='%+.2f',var='x'):
     """
     Retorna uma representacao em string do polinomio.
     """
     s = ''
     for i in reversed(range(1, len(coef))):
-        s += (format_str + '*x**%d ') % (coef[i], i)
+        s += (format_str + '*%s**%d ') % (coef[i],var, i)
     return s + ' ' + format_str % coef[0]
 
 def print_matrix(matrix, format_str='%f'):
