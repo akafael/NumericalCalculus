@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 *-*
 
-import pprint
-import numpy
-import os
-import sys
-
 def get_size(matrix):
     """
     Retorna uma tupla com as dimensoes da matriz (linhas, colunas)
@@ -80,11 +75,14 @@ def to_str(coef, format_str='%+.2f'):
         s += (format_str + '*x**%d ') % (coef[i], i)
     return s + ' ' + format_str % coef[0]
 
-def print_matrix(matrix, format_str='%f'):
+def printDat_matrix(matrix,filename,format_str='%f',):
     """
-    Imprime a matriz na tela de uma forma conveniente.
+    Imprime a matriz em um arquivo
     """
+    
+    datafile = open(filename,'w')
+
     for row in matrix:
         for elem in row:
-            print (format_str+' ') % elem,
-        print ''
+            datafile.write()
+

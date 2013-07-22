@@ -1,4 +1,4 @@
-This is LuaTeX, Version beta-0.70.2-2012091205 (TeX Live 2012/Debian) (format=lualatex 2013.5.12)  21 JUL 2013 22:56
+This is LuaTeX, Version beta-0.70.2-2012091205 (TeX Live 2012/Debian) (format=lualatex 2013.5.12)  22 JUL 2013 00:21
  \write18 enabled.
 **curve_fitting.tex
 (./curve_fitting.tex
@@ -433,7 +433,7 @@ ack
 \luacode@lines=\toks32
 \luacode@table@soft=\luatexcatcodetable13
 )
-No file curve_fitting.aux.
+(./curve_fitting.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
@@ -448,6 +448,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
+
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count278
@@ -500,44 +501,31 @@ runsystem(../src/./polynomial.py)...executed.
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./relat_aux.tex
 \c@cGraph=\count285
 )
-
-LaTeX Warning: Reference `tb:dados1' on page 2 undefined on input line 21.
-
-
-LaTeX Warning: Reference `fig:g1' on page 2 undefined on input line 21.
-
-<../image/graph1.png, id=20, 642.4pt x 481.8pt>
+<../image/graph1.png, id=22, 642.4pt x 481.8pt>
 File: ../image/graph1.png Graphic file (type png)
  <use ../image/graph1.png>
 Package pdftex.def Info: ../image/graph1.png used on input line 22.
 (pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
 
-
-LaTeX Warning: Reference `tb:poly' on page 2 undefined on input line 23.
-
-[2 <../image/graph1.png>]
-
-LaTeX Warning: Reference `fig:g2' on page 3 undefined on input line 28.
-
-<../image/graph2.png, id=32, 642.4pt x 481.8pt>
+[2 <../image/graph1.png>] <../image/graph2.png, id=37, 642.4pt x 481.8pt>
 File: ../image/graph2.png Graphic file (type png)
- <use ../image/graph2.png>
+
+<use ../image/graph2.png>
 Package pdftex.def Info: ../image/graph2.png used on input line 30.
 (pdftex.def)             Requested size: 284.52756pt x 213.39682pt.
-
-(./pol16.tex)
-Overfull \hbox (11.42413pt too wide) in paragraph at lines 32--34
-\OT1/cmr/m/n/10.95 126361098905\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 36 \OMS/
-cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.
-95 81231850609\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 07 \OMS/cmsy/m/n/10.95  
-\OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/10.95 + 39551053960\OML/cmm/m/it/10.95 :\O
-T1/cmr/m/n/10.95 00 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \OMS/cmsy/m/n
-/10.95   \OT1/cmr/m/n/10.95 14372130048\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 
-45 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/10.95 + 380193572
-4\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 32 \OMS/cmsy/m/n/10.95 
+ (./pol16.tex)
+Overfull \hbox (2.39166pt too wide) in paragraph at lines 32--34
+\OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.9
+5 ) =$ \T1/aer/m/n/10.95 <<<<<<< HEAD $\OT1/cmr/m/n/10.95 +44923123\OML/cmm/m/i
+t/10.95 :\OT1/cmr/m/n/10.95 03 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \O
+MS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 647191901\OML/cmm/m/it/10.95 :\OT1/cmr/m
+/n/10.95 27 \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 x[] \OT1/cmr/m/n/10.95 + 
+4279362750\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 70 \OMS/cmsy/m/n/10.95  \OML
+/cmm/m/it/10.95 x[] \OMS/cmsy/m/n/10.95   \OT1/cmr/m/n/10.95 17215003096\OML/cm
+m/m/it/10.95 :\OT1/cmr/m/n/10.95 08 \OMS/cmsy/m/n/10.95 
  []
 
-[3 <../image/graph2.png>] <../image/graph4.png, id=45, 642.4pt x 481.8pt>
+[3 <../image/graph2.png>] <../image/graph4.png, id=50, 642.4pt x 481.8pt>
 File: ../image/graph4.png Graphic file (type png)
 
 <use ../image/graph4.png>
@@ -548,29 +536,26 @@ Package pdftex.def Info: ../image/graph4.png used on input line 65.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.76 \begin{equation}
-                     \label{eq:spline.Ti}LuaTeX warning (ext4): destination wit
-h the same identifier (name{equation.1.2}) has been already used, duplicate ign
-ored
+l.73 \section
+             {Parte 2}LuaTeX warning (ext4): destination with the same identifi
+er (name{equation.1.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.76 \begin{equation}
-                     \label{eq:spline.Ti}LuaTeX warning (ext4): destination wit
-h the same identifier (name{equation.1.1}) has been already used, duplicate ign
-ored
+l.73 \section
+             {Parte 2}LuaTeX warning (ext4): destination with the same identifi
+er (name{equation.1.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.76 \begin{equation}
-                     \label{eq:spline.Ti}LuaTeX warning (ext4): destination wit
-h the same identifier (name{equation.1.2}) has been already used, duplicate ign
-ored
+l.73 \section
+             {Parte 2}LuaTeX warning (ext4): destination with the same identifi
+er (name{equation.1.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.76 \begin{equation}
-                     \label{eq:spline.Ti} <../image/graph4.png>]
+l.73 \section
+             {Parte 2} <../image/graph4.png>]
 ! Double subscript.
 l.118 a_i\\b_i\\_c_
                    i\\d_i\\
@@ -585,25 +570,9 @@ OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 )$\T1/aer/m/n/10.95
 T1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 j[] \OT1/cmr/m/n/10.95 =
  []
 
-
-LaTeX Warning: Reference `eq:splines.Yi-coef' on page 5 undefined on input line
- 159.
-
 [5]
-
-LaTeX Warning: Reference `eq:splines.Yi.deriv' on page 6 undefined on input lin
-e 195.
-
-
-LaTeX Warning: Reference `eq:splines.Yi.deriv1' on page 6 undefined on input li
-ne 196.
-
-
-LaTeX Warning: Reference `eq:splines.Yi.deriv' on page 6 undefined on input lin
-e 196.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 219.
-[6]
+ [6]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
  (./curve_fitting.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
@@ -612,38 +581,34 @@ Package rerunfilecheck Info: File `curve_fitting.out' has not changed.
 (rerunfilecheck)             Checksum: 77C54564F507B088D3A3FA89DB558CCB;84.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 219.
  )
 
 Here is how much of LuaTeX's memory you used:
- 7658 strings out of 494125
+ 7663 strings out of 494125
  100000,552014 words of node,token memory allocated
  467 words of node memory still in use:
    5 hlist, 2 vlist, 2 rule, 2 glue, 18 kern, 47 glue_spec, 1 write nodes
-   avail lists: 1:1,2:22,3:411,4:2111,5:199,6:3212,7:184,8:36,9:840,10:176
+   avail lists: 1:1,2:23,3:412,4:2099,5:199,6:3528,7:184,8:33,9:807,10:169
  10765 multiletter control sequences out of 65536+200000
  60 fonts using 1687475 bytes
- 43i,13n,43p,522b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,13n,43p,522b,367s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb>
-Output written on curve_fitting.pdf (6 pages, 188256 bytes).
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti10.pfb>
+Output written on curve_fitting.pdf (6 pages, 179566 bytes).
 
-PDF statistics: 133 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
+PDF statistics: 140 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
  50 named destinations out of 1000 (max. 131072)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 

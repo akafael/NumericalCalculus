@@ -88,12 +88,16 @@ def adjust_splines(table, column):
     
 
 
-def plot_parametric(y_splines, t_splines, s_range=(0.0, 1.0)):
+def plot_parametric(y_splines, t_splines,nameGraph="graph5.png", s_range=(0.0, 1.0)):
     """
     Plota 
     """
     
     command = ''
+    command += "set terminal pngcairo enhanced font \'Verdana,10\'\n"
+    command += 'outfile = \"%s\" \n' % str('../image/'+nameGraph)
+    command += 'set output outfile\n'
+    command += 'set key top\n'
     #command = 'set parametric\n'
     #command += 'set trange[%f:%f]\n' % s_range
     
@@ -116,7 +120,4 @@ if __name__ == '__main__':
         
         print t, y
         plot_parametric(y, t)
-<<<<<<< HEAD
-=======
 
->>>>>>> 248d08949df05ae91efcbb9da4a61ce929bd12e8
