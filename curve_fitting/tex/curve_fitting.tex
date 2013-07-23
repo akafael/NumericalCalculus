@@ -23,11 +23,15 @@
 f_n(x) = \sum_{i=0}^{n} a_i\cdot x^{i}
 \end{equation}
 \luaTable[3]{table1.dat}{Dados - tabela 1}{tb:dados1}{$i$ & $x_i$ & $y_i$}
-\paragraph{Questão 1:}Inicialmente ,a partir dos dados da tabela \ref{tb:dados1} , foram calculados as aproximações polinomiais nos graus 1, 3, 5 e 10. Obteve-se as curvas ilustradas no gráfico \ref{fig:g1}
+\paragraph{Questão 1:}Inicialmente, a partir dos dados da tabela \ref{tb:dados1} , foram calculados as aproximações polinomiais nos graus 1, 3, 5 e 10. Obteve-se as curvas ilustradas no gráfico \ref{fig:g1}
 \plotedFigure[1]{Gráfico das curvas de ajuste polinômial}
 \paragraph{}As quais são definidas pelas expressões registradas na tabela \ref{tb:poly}
 
 \polyTable[tb:poly]{1,3,5,10}{Polinômios gerados}
+
+\paragraph{}Sendo o erro quadrático devido a aproximação por cada polinômio representado na tabela ()
+
+\luaTable[2]{tableErroPol.dat}{Erro associado a cada aproximação polinomial}{tb:erroPol}{Grau & Erro}
 
 %% q2: polinômio de lagrange vs polinômio interpolador
 \paragraph{Questão 2:}Procendendo de maneira similar à primeira questão, buscou-se um polinômio de grau 16 que melhor aproxima-se a função. Tal polinômio, tendo grau igual ao número de pontos usado a menos de um, é denominado \textit{Polinômio Interpolador} pela propriedade de passar exatamente por todos os pontos dos dados. Encontrando-se representado na figura \ref{fig:g2}
@@ -120,7 +124,7 @@ Y'_i(s)|_{s=1} = D_{i+1} = 3\cdot a_i\cdot (1)^2 + 2\cdot b_i \cdot (1) + c_i\\
 \cdot
 \left[
 \begin{array}{c}
-a_i\\b_i\\_c_i\\d_i\\
+a_i\\b_i\\c_i\\d_i\\
 \end{array}
 \right]
 = 
@@ -223,6 +227,25 @@ D_1 & + & 4 D_2 & + & D_3 &\multicolumn{6}{c}{\ }& $=$ & 3y_3 - 3y2
 \paragraph{Questão 7}Resolvendo o sistema em \ref{eq:spline.sis}, podemos definir os coeficientes das curvas paramétricas, de maneira que temos como gráfico:
 
 \plotedFigure[6]{Gráfico da curva gerada pelas splines}
+
+%\paragraph{}Em que a curva de ajuste é dada por
+\paragraph{Questão 8}Conhecida a expressão da curva, podemos calcular a curvatura, bem como qualquer outra relação seguindo ou pela orientação direta ou indireta. Isto é calculando explicitamente o valor na função ou dada a equação, obter-la como raiz de uma expressão equivalente por algum método iterativo, como por exemplo Newton-Rapson.
+\paragraph{}Para o calculo da curvatura diretamente temos que o valor será dado por:
+\begin{equation}\label{eq:spline.curvatura}
+\kappa(s)=\frac{\textbf{x}'(s)x\textbf{x}''(s)}{|\textbf{x}'(s)|}
+\end{equation}
+\begin{equation}
+\kappa(s)=\frac{|T'(s)\cdot Y''(s)-T''(s)\cdot Y'(s)|}{\sqrt{(Y'(s))^2 + (T'(s))^2}}
+\end{equation}
+% \paragraph{}Procedendo com o cálculo indireto a expressão \ref{eq:spline.curvatura}, seguindo pelo método interativo citado:
+% \begin{equation}
+% P(s) = s - \frac{f(s)}{f'(s)} ,\ f(s) = \kappa(s) - \frac{\textbf{x}'(s)x\textbf{x}''(s)}{|\textbf{x}'(s)|}
+% \end{equation}
+
+\paragraph{Questão 9}Dado a estrutura na forma paramétrica das splines, adicionar uma dimensão implica apenas na resolução de mais um sistema. De modo que, para os dados da tabela \ref{tb:dados2} temos:
+\luaTable[4]{table2.dat}{Dados - tabela 2}{tb:dados2}{$i$ & $t_i$ & $x_i$ & $y_i$}
+
+\plotedFigure[7]{Gráfico da curva gerada a partir da tabela \ref{tb:dados2}} 
 
 % -------------------------------------------------------------------
 \end{document}
